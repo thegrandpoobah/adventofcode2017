@@ -66,6 +66,7 @@ for (var d = 0;; d++) {
   for (var j = 0; j < SPAN; j++) { // number of generations to cross
     if (firewallDepths[j] !== 0 && (d + j) % firewallDepths[j] === 0) {
       caught = true
+      break
     }
   }
 
