@@ -3,7 +3,7 @@
 #include <vector>
 
 int main() {
-  FILE *fp = fopen("day5input.txt", "rt");
+  FILE *fp = fopen("day05input.txt", "rt");
   if (fp == NULL) {
     exit(-1);
   }

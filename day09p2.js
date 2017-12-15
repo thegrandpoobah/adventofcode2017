@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var stream = fs.readFileSync('day9input.txt', {encoding: 'utf8'}).split('\n')
+var stream = fs.readFileSync('day09input.txt', {encoding: 'utf8'}).split('\n')
 var tokens = []
 
 stream[0].split(/([\{\}\<\>\!])/).forEach(function(t) {

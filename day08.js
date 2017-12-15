@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var instructions = fs.readFileSync('day8input.txt', {encoding: 'utf8'}).split('\n')
+var instructions = fs.readFileSync('day08input.txt', {encoding: 'utf8'}).split('\n')
 
 var operators = {
   '>': (register, value) => { return register > value },

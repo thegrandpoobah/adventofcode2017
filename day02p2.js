@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var spreadsheet = fs.readFileSync('day2input.txt', {encoding: 'utf8'}).split('\n')
+var spreadsheet = fs.readFileSync('day02input.txt', {encoding: 'utf8'}).split('\n')
 
 var sum = 0
 

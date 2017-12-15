@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var productions = fs.readFileSync('day7input.txt', {encoding: 'utf8'}).split('\n')
+var productions = fs.readFileSync('day07input.txt', {encoding: 'utf8'}).split('\n')
 
 var isChild = {}
 var nodeMaps = {}

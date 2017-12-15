@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var passphrases = fs.readFileSync('day4input.txt', {encoding: 'utf8'}).split('\n')
+var passphrases = fs.readFileSync('day04input.txt', {encoding: 'utf8'}).split('\n')
 
 var parts
 var memo
