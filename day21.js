@@ -78,51 +78,56 @@ const enhancements = input.reduce((a, l) => {
   }
 }, {})
 
-let image = '.#...####'
-let size = 3
+function compute(iterations) {
+  let image = '.#...####'
+  let size = 3
 
-for (let i = 0; i < 5; i++) {
-  let image2 = []
-  let cellSize
-  let size2
+  for (let i = 0; i < iterations; i++) {
+    let image2 = []
+    let cellSize
+    let size2
 
-  if (size % 2 === 0) {
-    cellSize = 2
-    size2 = size * 1.5
-  } else if (size % 3 === 0) {
-    cellSize = 3
-    size2 = Math.ceil(size * 4/3)
-  }
+    if (size % 2 === 0) {
+      cellSize = 2
+      size2 = size * 1.5
+    } else if (size % 3 === 0) {
+      cellSize = 3
+      size2 = Math.ceil(size * 4/3)
+    }
 
-  for (let cellX = 0; cellX < size / cellSize; cellX++) {
-    for (let cellY = 0; cellY < size / cellSize; cellY++) {
-      let cell = ''
-      for (let y = 0; y < cellSize; y++) {
-        for (let x = 0; x < cellSize; x++) {
-          cell += image[((cellY * cellSize) + y) * size + (cellX * cellSize) + x]
+    for (let cellX = 0; cellX < size / cellSize; cellX++) {
+      for (let cellY = 0; cellY < size / cellSize; cellY++) {
+        let cell = ''
+        for (let y = 0; y < cellSize; y++) {
+          for (let x = 0; x < cellSize; x++) {
+            cell += image[((cellY * cellSize) + y) * size + (cellX * cellSize) + x]
+          }
         }
-      }
 
-      let tile = enhancements[cell]
+        let tile = enhancements[cell]
 
-      for (let y = 0; y < (cellSize + 1); y++) {
-        for (let x = 0; x < (cellSize + 1); x++) {
-          image2[((cellY * (cellSize + 1)) + y) * size2 + (cellX * (cellSize + 1)) + x] = tile[y * (cellSize + 1) + x]
+        for (let y = 0; y < (cellSize + 1); y++) {
+          for (let x = 0; x < (cellSize + 1); x++) {
+            image2[((cellY * (cellSize + 1)) + y) * size2 + (cellX * (cellSize + 1)) + x] = tile[y * (cellSize + 1) + x]
+          }
         }
       }
     }
+
+    size = size2
+    image = image2.reduce((a,v) => { return a + v }, '')
   }
 
-  size = size2
-  image = image2.reduce((a,v) => { return a + v }, '')
-}
-
-let count = 0
-for (let i = 0; i < image.length; i++) {
-  if (image[i] === '#') {
-    count++
+  let count = 0
+  for (let i = 0; i < image.length; i++) {
+    if (image[i] === '#') {
+      count++
+    }
   }
+
+  return count
 }
 
-console.log('part 1', count)
+console.log('part 1', compute(5))
+console.log('part 2', compute(18))
 
