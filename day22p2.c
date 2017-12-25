@@ -70,9 +70,6 @@ int main() {
 
 	for (uint32_t i = 0; i < ITERATIONS; i++) {
 		int directionDelta = 0;
-		bool rotateLeft = false;
-		bool rotateRight = false;
-		bool reverse = false;
 
 		enum nodestate_t state = grid[(y + GRID_MAX_Y) * GRID_MAX_X * 2 + (x + GRID_MAX_X)];
 		enum nodestate_t nextState = clean;
@@ -81,7 +78,6 @@ int main() {
 			case clean:
 				nextState = weakened;
 				directionDelta = -1;
-				rotateLeft = true;
 				break;
 			case weakened:
 				nextState = infected;
@@ -90,12 +86,10 @@ int main() {
 			case infected:
 				nextState = flagged;
 				directionDelta = 1;
-				rotateRight = true;
 				break;
 			case flagged:
 				nextState = clean;
 				directionDelta = 2;
-				reverse = true;
 				break;
 		}
 
