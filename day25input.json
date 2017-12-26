@@ -1,0 +1,78 @@
+{
+  "initialState": "A",
+  "checksum": 12459852,
+  "states": {
+    "A": [
+      {
+        "write": 1,
+        "move": 1,
+        "next": "B"
+      },
+      {
+        "write": 1,
+        "move": -1,
+        "next": "E"
+      }
+    ],
+    "B": [
+      {
+        "write": 1,
+        "move": 1,
+        "next": "C"
+      },
+      {
+        "write": 1,
+        "move": 1,
+        "next": "F"
+      }
+    ],
+    "C": [
+      {
+        "write": 1,
+        "move": -1,
+        "next": "D"
+      },
+      {
+        "write": 0,
+        "move": 1,
+        "next": "B"
+      }
+    ],
+    "D": [
+      {
+        "write": 1,
+        "move": 1,
+        "next": "E"
+      },
+      {
+        "write": 0,
+        "move": -1,
+        "next": "C"
+      }
+    ],
+    "E": [
+      {
+        "write": 1,
+        "move": -1,
+        "next": "A"
+      },
+      {
+        "write": 0,
+        "move": 1,
+        "next": "D"
+      }
+    ],
+    "F": [
+      {
+        "write": 1,
+        "move": 1,
+        "next": "A"
+      },
+      {
+        "write": 1,
+        "move": 1,
+        "next": "C"
+      }
+    ]
+  }
+}
