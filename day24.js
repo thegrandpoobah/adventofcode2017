@@ -23,8 +23,6 @@ const componentMap = components.reduce((a, c) => {
   return a
 }, {})
 
-// console.log(componentMap)
-
 potentials = []
 function build(componentMap, needed, path) {
   potentials.push(path)
@@ -58,13 +56,6 @@ function build(componentMap, needed, path) {
 }
 
 build(componentMap, 0, [])
-
-// console.log('part 1', potentials.reduce((strongest, path) => {
-//   return Math.max(strongest, path.reduce((a, p) => {
-//     a += p.left + p.right
-//     return a
-//   }, 0))
-// }, 0))
 
 const scores = potentials.reduce((scores, path) => {
   scores[path.length] = Math.max(scores[path.length] || 0, path.reduce((a, p) => {
